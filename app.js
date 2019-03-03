@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const cors = require('cors'); //Нужен для обработки корс запросы
 const authRoutes = require('./routes/auth');
@@ -6,7 +7,12 @@ const analyticsRoutes = require('./routes/analytics');
 const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
+const keys = require('./config/keys');
 const app = express();
+
+mongoose.connect(keys.mongoURI)
+    .then(()=> console.log('mongodb connected!!!'))
+    .catch(error => console.log(`ERROR !!!! LOG ---------- :${error}`))
 
 
 app.use(require('morgan')('dev'));
