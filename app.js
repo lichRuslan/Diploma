@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 // const cors = require('cors'); //Нужен для обработки корс запросы
 const authRoutes = require('./routes/auth');
 const analyticsRoutes = require('./routes/analytics');
@@ -13,6 +14,9 @@ const app = express();
 mongoose.connect(keys.mongoURI)
     .then(()=> console.log('mongodb connected!!!'))
     .catch(error => console.log(`ERROR !!!! LOG ---------- :${error}`))
+
+app.use(passport.initialize());
+require('./middleware/passport')(passport)
 
 
 app.use(require('morgan')('dev'));
