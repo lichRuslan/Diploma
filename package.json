@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index",
     "server": "nodemon index",
+    "client-install": "npm install --prefix client",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "mocha"
   },
   "repository": {
@@ -39,6 +42,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "request": "^2.88.0"
