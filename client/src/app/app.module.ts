@@ -11,6 +11,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 // import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
+import { OverviewPageComponent } from './overview-page/overview-page.component';
 // import { from } from 'rxjs';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
     LoginPageComponent,
     AuthLayoutComponent,
     SiteLayoutComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    OverviewPageComponent
   ],
   imports: [
     BrowserModule,
